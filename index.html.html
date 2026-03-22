@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruhani Prasad — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--forest:#1B4332;--sage:#52796F;--mint:#95D5B2;--gold:#DDA15E;--earth:#BC6C25;--white:#FFFFFF;--charcoal:#2D3436}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Source Sans 3',sans-serif;background:#E8E8E4;color:var(--charcoal);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:20px 20px 40px}
+  .lang-bar{display:flex;align-items:center;gap:10px;margin-bottom:18px;background:var(--forest);padding:10px 20px;border-radius:50px;box-shadow:0 8px 30px rgba(27,67,50,0.3);position:sticky;top:12px;z-index:100;flex-wrap:wrap;justify-content:center}
+  .lang-bar-label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--mint);margin-right:4px}
+  .lang-btn{padding:6px 14px;border-radius:20px;border:1px solid rgba(149,213,178,0.2);background:transparent;color:rgba(255,255,255,0.55);font-size:12px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:all 0.25s;font-family:'Source Sans 3',sans-serif}
+  .lang-btn:hover{border-color:var(--mint);color:rgba(255,255,255,0.85)}
+  .lang-btn.active{background:linear-gradient(135deg,var(--mint),var(--gold));color:var(--forest);border-color:transparent;font-weight:700}
+  .cv{width:920px;background:var(--white);box-shadow:0 25px 80px rgba(0,0,0,0.12);display:grid;grid-template-columns:300px 1fr;overflow:hidden;position:relative}
+  .sb{background:linear-gradient(175deg,var(--forest) 0%,#0D2818 100%);color:#fff;position:relative;overflow:hidden;padding:0}
+  .sb::before{content:'';position:absolute;top:-80px;right:-80px;width:250px;height:250px;border-radius:50%;background:rgba(149,213,178,0.06)}
+  .sb::after{content:'';position:absolute;bottom:80px;left:-60px;width:200px;height:200px;border-radius:50%;background:rgba(221,161,94,0.05)}
+  .av-sec{padding:34px 24px 18px;text-align:center;position:relative}
+  .av-ring{width:115px;height:115px;border-radius:50%;border:3px solid var(--mint);margin:0 auto 12px;display:flex;align-items:center;justify-content:center;background:rgba(149,213,178,0.1);position:relative}
+  .av-ring::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(149,213,178,0.3)}
+  .av-init{font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--mint);letter-spacing:2px}
+  .sb-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:0.5px;margin-bottom:4px}
+  .sb-title{font-size:10px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--mint);line-height:1.5}
+  .divider{width:40px;height:2px;background:var(--gold);margin:16px auto}
+  .sb-sec{padding:0 24px 16px;position:relative;z-index:1}
+  .sb-h{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .sb-h::after{content:'';flex:1;height:1px;background:rgba(221,161,94,0.25)}
+  .ci{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:11px;line-height:1.4;color:rgba(255,255,255,0.85)}
+  .ci-icon{width:24px;height:24px;border-radius:5px;background:rgba(149,213,178,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px}
+  .ci a{color:rgba(255,255,255,0.85);text-decoration:none}
+  .ci a:hover{color:var(--mint)}
+  .snap-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .snap-card{background:rgba(149,213,178,0.08);border:1px solid rgba(149,213,178,0.12);border-radius:7px;padding:8px 8px 6px;text-align:center}
+  .snap-num{font-family:'JetBrains Mono',monospace;font-size:19px;font-weight:500;color:var(--mint);line-height:1}
+  .snap-lbl{font-size:8.5px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:3px;line-height:1.25}
+  .sk-item{margin-bottom:9px}
+  .sk-lbl{font-size:10.5px;font-weight:500;margin-bottom:3px;color:rgba(255,255,255,0.9);display:flex;justify-content:space-between}
+  .sk-pct{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--gold)}
+  .sk-track{width:100%;height:4px;background:rgba(255,255,255,0.08);border-radius:10px;overflow:hidden}
+  .sk-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--mint),var(--gold))}
+  .li{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-size:11px;color:rgba(255,255,255,0.85)}
+  .li-lvl{font-size:9px;font-weight:600;color:var(--gold)}
+  .int-tags{display:flex;flex-wrap:wrap;gap:5px}
+  .int-tag{font-size:9.5px;font-weight:500;color:rgba(255,255,255,0.75);background:rgba(149,213,178,0.08);border:1px solid rgba(149,213,178,0.15);padding:3px 9px;border-radius:12px}
+  .avail-box{background:rgba(149,213,178,0.08);border:1px solid rgba(149,213,178,0.18);border-radius:8px;padding:10px 12px}
+  .avail-hdr{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+  .avail-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;box-shadow:0 0 8px rgba(74,222,128,0.5);animation:pulse 2s infinite;flex-shrink:0}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+  .avail-t{font-size:11px;font-weight:700;color:var(--mint)}
+  .avail-row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
+  .avail-badge{font-size:8px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:2px 7px;border-radius:3px;flex-shrink:0}
+  .avail-badge.p{background:rgba(149,213,178,0.15);color:var(--mint)}
+  .avail-badge.s{background:rgba(221,161,94,0.15);color:var(--gold)}
+  .avail-txt{font-size:10px;color:rgba(255,255,255,0.7);line-height:1.3}
+  .share-box{background:rgba(221,161,94,0.08);border:1px dashed rgba(221,161,94,0.3);border-radius:8px;padding:10px 12px;text-align:center}
+  .share-box-t{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .share-box p{font-size:9.5px;color:rgba(255,255,255,0.6);line-height:1.4;margin-bottom:7px}
+  .share-flags{font-size:14px;letter-spacing:4px;margin-bottom:6px}
+  .share-btn{display:inline-block;font-size:10px;font-weight:700;color:var(--forest);background:linear-gradient(135deg,var(--mint),var(--gold));padding:5px 16px;border-radius:14px;text-decoration:none;cursor:pointer;border:none;font-family:'Source Sans 3',sans-serif}
+  .share-btn:hover{opacity:0.9}
+  .mn{padding:34px;background:var(--white);position:relative}
+  .mn-hdr{margin-bottom:22px;border-bottom:2px solid var(--forest);padding-bottom:16px;position:relative}
+  .mn-hdr::after{content:'';position:absolute;bottom:-2px;left:0;width:80px;height:2px;background:var(--gold)}
+  .mn-name{font-family:'Playfair Display',serif;font-size:30px;font-weight:800;color:var(--forest);line-height:1.15}
+  .mn-sub{font-size:12px;font-weight:500;color:var(--sage);letter-spacing:3px;text-transform:uppercase;margin-top:4px}
+  .sum{font-size:12px;line-height:1.7;color:#555;margin-top:10px;padding-left:12px;border-left:3px solid var(--mint)}
+  .sec{margin-bottom:20px}
+  .sec-h{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .sec-ico{width:28px;height:28px;border-radius:6px;background:var(--forest);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .sec-ico svg{width:14px;height:14px;fill:var(--mint)}
+  .sec-t{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--forest)}
+  .sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--sage),transparent)}
+  .ec{padding:12px 0 12px 15px;border-left:2px solid var(--mint);margin-bottom:14px;position:relative}
+  .ec::before{content:'';position:absolute;left:-5.5px;top:16px;width:9px;height:9px;border-radius:50%;background:var(--forest);border:2px solid var(--mint)}
+  .ec-role{font-size:13.5px;font-weight:700;color:var(--forest);margin-bottom:1px}
+  .ec-co{font-size:12px;font-weight:600;color:var(--sage)}
+  .ec-date{font-size:10px;font-weight:600;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;display:inline-block;background:rgba(221,161,94,0.08);padding:2px 7px;border-radius:3px}
+  .el{list-style:none;padding:0}
+  .el li{font-size:11.5px;line-height:1.6;color:#555;padding-left:14px;position:relative;margin-bottom:3px}
+  .el li::before{content:'▸';position:absolute;left:0;color:var(--mint);font-weight:700}
+  .hl{color:var(--forest);font-weight:600}
+  .mt{display:inline-block;background:linear-gradient(135deg,rgba(27,67,50,0.06),rgba(149,213,178,0.1));color:var(--forest);font-weight:700;font-size:11px;padding:1px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace}
+  .edu-c{display:flex;gap:11px;margin-bottom:11px;align-items:flex-start}
+  .edu-yr{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:#fff;background:var(--forest);padding:3px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+  .edu-i h4{font-size:12.5px;font-weight:700;color:var(--forest);line-height:1.3}
+  .edu-i p{font-size:11px;color:var(--sage);margin-top:1px}
+  .cg{display:flex;flex-wrap:wrap;gap:5px}
+  .ct{font-size:10px;font-weight:500;color:var(--forest);background:rgba(27,67,50,0.06);border:1px solid rgba(27,67,50,0.12);padding:3px 10px;border-radius:18px}
+  .ct.a{background:rgba(221,161,94,0.08);border-color:rgba(221,161,94,0.2);color:var(--earth)}
+  .cr{display:flex;flex-wrap:wrap;gap:9px}
+  .cl{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;color:var(--forest);text-decoration:none;padding:8px 14px;background:rgba(27,67,50,0.04);border:1px dashed var(--sage);border-radius:7px;transition:all 0.2s}
+  .cl:hover{background:rgba(27,67,50,0.08);border-style:solid}
+  .fb{position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--forest),var(--mint),var(--gold))}
+  [dir="rtl"] .ec{border-left:none;border-right:2px solid var(--mint);padding-left:0;padding-right:15px}
+  [dir="rtl"] .ec::before{left:auto;right:-5.5px}
+  [dir="rtl"] .el li{padding-left:0;padding-right:14px}
+  [dir="rtl"] .el li::before{left:auto;right:0}
+  [dir="rtl"] .sum{border-left:none;border-right:3px solid var(--mint);padding-left:0;padding-right:12px}
+  [dir="rtl"] .mn-hdr::after{left:auto;right:0}
+  @media print{body{padding:0;background:#fff}.cv{box-shadow:none;width:100%}.lang-bar{display:none}}
+  @media(max-width:960px){.cv{width:100%;grid-template-columns:260px 1fr}}
+  @media(max-width:700px){.cv{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="lang-bar">
+  <span class="lang-bar-label">🌐</span>
+  <button class="lang-btn active" onclick="setLang('en')">English</button>
+  <button class="lang-btn" onclick="setLang('de')">Deutsch</button>
+  <button class="lang-btn" onclick="setLang('es')">Español</button>
+  <button class="lang-btn" onclick="setLang('fr')">Français</button>
+  <button class="lang-btn" onclick="setLang('pt')">Português</button>
+  <button class="lang-btn" onclick="setLang('ar')">العربية</button>
+</div>
+
+<div class="cv">
+<div class="sb">
+  <div class="av-sec">
+    <div class="av-ring"><span class="av-init">RP</span></div>
+    <div class="sb-name">Ruhani Prasad</div>
+    <div class="sb-title" id="sbTitle"></div>
+  </div>
+  <div class="divider"></div>
+  <div class="sb-sec"><div class="sb-h" id="hContact"></div>
+    <div class="ci"><div class="ci-icon">📍</div><span>Berlin, Germany</span></div>
+    <div class="ci"><div class="ci-icon">📞</div><span>+49 176 620 431 89</span></div>
+    <div class="ci"><div class="ci-icon">✉️</div><a href="mailto:ruhaniprasad1995@gmail.com">ruhaniprasad1995@gmail.com</a></div>
+    <div class="ci"><div class="ci-icon">🔗</div><a href="https://linkedin.com/in/ruhani-prasad-03">linkedin.com/in/ruhani-prasad-03</a></div>
+  </div>
+  <div class="sb-sec"><div class="sb-h" id="hSnap"></div>
+    <div class="snap-grid">
+      <div class="snap-card"><div class="snap-num">6+</div><div class="snap-lbl" id="snapYrs"></div></div>
+      <div class="snap-card"><div class="snap-num">10</div><div class="snap-lbl" id="snapProj"></div></div>
+      <div class="snap-card"><div class="snap-num">2</div><div class="snap-lbl" id="snapCountry"></div></div>
+      <div class="snap-card"><div class="snap-num">2</div><div class="snap-lbl" id="snapDeg"></div></div>
+    </div>
+  </div>
+  <div class="sb-sec"><div class="sb-h" id="hSkills"></div>
+    <div class="sk-item"><div class="sk-lbl"><span>Power BI</span><span class="sk-pct">85%</span></div><div class="sk-track"><div class="sk-fill" style="width:85%"></div></div></div>
+    <div class="sk-item"><div class="sk-lbl"><span>Excel (Advanced)</span><span class="sk-pct">90%</span></div><div class="sk-track"><div class="sk-fill" style="width:90%"></div></div></div>
+    <div class="sk-item"><div class="sk-lbl"><span>HCC+ / NEAT+</span><span class="sk-pct">80%</span></div><div class="sk-track"><div class="sk-fill" style="width:80%"></div></div></div>
+    <div class="sk-item"><div class="sk-lbl"><span>R / Python</span><span class="sk-pct">65%</span></div><div class="sk-track"><div class="sk-fill" style="width:65%"></div></div></div>
+    <div class="sk-item"><div class="sk-lbl"><span>CO₂ Forecasting</span><span class="sk-pct">78%</span></div><div class="sk-track"><div class="sk-fill" style="width:78%"></div></div></div>
+    <div class="sk-item"><div class="sk-lbl"><span>EIA / ESIA</span><span class="sk-pct">75%</span></div><div class="sk-track"><div class="sk-fill" style="width:75%"></div></div></div>
+  </div>
+  <div class="sb-sec"><div class="sb-h" id="hLangs"></div>
+    <div class="li"><span>Hindi</span><span class="li-lvl">C2</span></div>
+    <div class="li"><span>English</span><span class="li-lvl">C2</span></div>
+    <div class="li"><span>German / Deutsch</span><span class="li-lvl">A2</span></div>
+    <div class="li"><span>Spanish / Español</span><span class="li-lvl">A1</span></div>
+    <div class="li"><span>Russian / Русский</span><span class="li-lvl">A1</span></div>
+    <div class="li"><span>Arabic / العربية</span><span class="li-lvl">A1</span></div>
+  </div>
+  <div class="sb-sec"><div class="sb-h" id="hInt"></div>
+    <div class="int-tags" id="intTags"></div>
+  </div>
+  <div class="sb-sec">
+    <div class="avail-box">
+      <div class="avail-hdr"><div class="avail-dot"></div><div class="avail-t" id="availTitle"></div></div>
+      <div class="avail-row"><span class="avail-badge p" id="permLabel"></span><span class="avail-txt" id="permText"></span></div>
+      <div class="avail-row"><span class="avail-badge s" id="stuLabel"></span><span class="avail-txt" id="stuText"></span></div>
+    </div>
+  </div>
+  <div class="sb-sec">
+    <div class="share-box">
+      <div class="share-box-t" id="shareTitle"></div>
+      <div class="share-flags">🇬🇧 🇩🇪 🇪🇸 🇫🇷 🇧🇷 🇸🇦</div>
+      <p id="shareDesc"></p>
+      <button class="share-btn" onclick="copyLink()">📋 Copy Link</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="mn" id="mainArea">
+  <div class="mn-hdr">
+    <div class="mn-name">Ruhani Prasad</div>
+    <div class="mn-sub" id="mnSub"></div>
+    <p class="sum" id="mnSum"></p>
+  </div>
+  <!-- Experience -->
+  <div class="sec">
+    <div class="sec-h"><div class="sec-ico"><svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg></div><span class="sec-t" id="hExp"></span><div class="sec-line"></div></div>
+    <div id="expCards"></div>
+  </div>
+  <!-- Education -->
+  <div class="sec">
+    <div class="sec-h"><div class="sec-ico"><svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div><span class="sec-t" id="hEdu"></span><div class="sec-line"></div></div>
+    <div id="eduCards"></div>
+  </div>
+  <!-- Competencies -->
+  <div class="sec">
+    <div class="sec-h"><div class="sec-ico"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><span class="sec-t" id="hComp"></span><div class="sec-line"></div></div>
+    <div class="cg" id="compTags"></div>
+  </div>
+  <!-- Certs -->
+  <div class="sec" style="margin-bottom:0">
+    <div class="sec-h"><div class="sec-ico"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div><span class="sec-t" id="hCert"></span><div class="sec-line"></div></div>
+    <div class="cr"><a class="cl" id="certLink1" href="https://drive.google.com/drive/folders/1CGOlmkiGq-rUAja2uYxdDlPf3g2-fWhS" target="_blank"></a><a class="cl" id="certLink2" href="https://drive.google.com/drive/folders/1REHG0J_XmrjaTGnfXz_cgUxK572D3Sb_?usp=drive_link" target="_blank"></a></div>
+  </div>
+  <div class="fb"></div>
+</div>
+</div>
+
+<script>
+const L={
+  en:{sbTitle:"Agricultural Economics<br>& Sustainability Analyst",mnSub:"Agricultural Economics & Sustainability",
+    hContact:"Contact",hSnap:"Profile Snapshot",snapYrs:"Years<br>Experience",snapProj:"Pilot<br>Projects",snapCountry:"Countries<br>Worked",snapDeg:"Master's<br>Degrees",
+    hSkills:"Technical Skills",hLangs:"Languages",hInt:"Interests",
+    interests:["🌱 Sustainable Agriculture","📊 Data Visualization","🌍 Climate Policy","📖 Econometrics","🤝 Cross-Cultural Work","🧮 Carbon Markets"],
+    availTitle:"Open to Opportunities",permLabel:"PERMANENT",permText:"Available from June 2026",stuLabel:"STUDENT JOB",stuText:"Available immediately",
+    shareTitle:"Share this CV",shareDesc:"Available in 6 languages.<br>Share the link — recipients pick their language.",
+    summary:"Agricultural economics professional bridging sustainability science with actionable data. Experienced in carbon accounting (HCC+), environmental assessment (NEAT+, EIA), and analytics-driven reporting through Power BI and advanced Excel. Proven ability to translate complex emissions data into strategic forecasts — with a track record spanning NGO project work, agribusiness operations, and cross-cultural team leadership across India and Germany.",
+    hExp:"Professional Experience",hEdu:"Education",hComp:"Core Competencies",hCert:"Certifications & Employment References",
+    cert1:"📂 Certifications & Publications",cert2:"📋 Certificate of Employment (Arbeitszeugnis)",
+    comps:["Carbon Accounting & Reporting","Environmental Impact Assessment","Power BI Dashboards","CO₂ Forecasting & Modelling","Monitoring & Evaluation","Advanced Excel","Agribusiness Strategy","Supply Chain Analysis","Stakeholder Coordination","Data-Driven Decision Making","Budget Tracking & Ops","Team Leadership"],
+    compAccent:[2,5,9],
+    exp:[
+      {role:"Project Assistant",co:"ADRA DE e.V. — Germany",date:"2024 – 2025",b:["Progressed from intern to Project Assistant, supporting agricultural and environmental projects across ADRA DE and partner offices","Calculated and forecast CO₂ emissions through 2030 for <span class='mt'>10 pilot projects</span> using HCC+","Built emissions dashboards in <span class='hl'>Power BI</span> and analytical models in <span class='hl'>Excel</span> for stakeholder reporting","Reviewed and evaluated agricultural/environmental projects; contributed to technical guidance","Led environmental impact assessment (EIA) support and compliance documentation","Applied <span class='hl'>NEAT+ (Rural & Urban)</span> frameworks for standardized project assessment"]},
+      {role:"Assistant Manager",co:"Lovisa — Berlin, Germany",date:"2022 – 2024 | 2025 – Present",b:["Managed staff rosters, task allocation, and daily team coordination across all store operations","Analysed sales performance, consumer trends, and buying patterns; delivered actionable reports","Achieved a consistent monthly budget surplus of <span class='mt'>25 – 30%</span> through cost discipline and service excellence","Oversaw inventory management, reducing stock discrepancies and supporting operational planning"]},
+      {role:"Teaching Assistant — Dept. of Agricultural Economics",co:"SHUATS — Prayagraj, India",date:"2019",b:["Supported MBA Agribusiness instruction across microeconomics, econometrics, macroeconomics, OB, and supply chain management","Mentored students, evaluated performance, and assisted with academic seminar planning"]},
+      {role:"Research & Field Trainee",co:"SHUATS & Kaushambi — India",date:"2016 – 2017",b:["Completed seed production, processing, certification, and quality testing (vigour, purity, moisture)","Assessed farmer technology adoption; delivered field-level recommendations via rural outreach programs","Processed and marketed <span class='mt'>10+ value-added agri-products</span>, generating <span class='mt'>10%</span> profit through post-harvest innovation"]}
+    ],
+    edu:[{deg:"M.Sc. Agricultural Economics",uni:"Humboldt University of Berlin, Germany · Expected: July 2026",yr:"2019–2026"},{deg:"M.Sc. Ag. (Agricultural Economics)",uni:"Sam Higginbottom University of Agriculture, Technology & Sciences, India",yr:"2017–2019"}]
+  },
+  de:{sbTitle:"Agrarökonomie<br>& Nachhaltigkeitsanalystin",mnSub:"Agrarökonomie & Nachhaltigkeit",
+    hContact:"Kontakt",hSnap:"Profil-Überblick",snapYrs:"Jahre<br>Erfahrung",snapProj:"Pilot-<br>projekte",snapCountry:"Länder<br>gearbeitet",snapDeg:"Master-<br>abschlüsse",
+    hSkills:"Technische Kenntnisse",hLangs:"Sprachen",hInt:"Interessen",
+    interests:["🌱 Nachhaltige Landwirtschaft","📊 Datenvisualisierung","🌍 Klimapolitik","📖 Ökonometrie","🤝 Interkulturelle Arbeit","🧮 CO₂-Märkte"],
+    availTitle:"Offen für Angebote",permLabel:"FESTANSTELLUNG",permText:"Verfügbar ab Juni 2026",stuLabel:"WERKSTUDENT",stuText:"Sofort verfügbar",
+    shareTitle:"Lebenslauf teilen",shareDesc:"Verfügbar in 6 Sprachen.<br>Link teilen — Empfänger wählen ihre Sprache.",
+    summary:"Fachkraft für Agrarökonomie an der Schnittstelle von Nachhaltigkeitswissenschaft und datengestützter Analyse. Erfahren in CO₂-Bilanzierung (HCC+), Umweltverträglichkeitsprüfung (NEAT+, UVP) sowie analytischem Reporting mit Power BI und Excel. Nachgewiesene Fähigkeit, komplexe Emissionsdaten in strategische Prognosen zu übersetzen — mit Erfahrung in NGO-Projektarbeit, Agribusiness und interkultureller Teamführung in Indien und Deutschland.",
+    hExp:"Berufserfahrung",hEdu:"Ausbildung",hComp:"Kernkompetenzen",hCert:"Zertifikate & Arbeitszeugnisse",
+    cert1:"📂 Zertifikate & Publikationen",cert2:"📋 Einfaches Arbeitszeugnis",
+    comps:["CO₂-Bilanzierung & Berichterstattung","Umweltverträglichkeitsprüfung","Power BI Dashboards","CO₂-Prognose & Modellierung","Monitoring & Evaluierung","Fortgeschrittenes Excel","Agribusiness-Strategie","Lieferkettenanalyse","Stakeholder-Koordination","Datenbasierte Entscheidungsfindung","Budgetverfolgung & Betrieb","Teamführung"],
+    compAccent:[2,5,9],
+    exp:[
+      {role:"Projektassistentin",co:"ADRA DE e.V. — Deutschland",date:"2024 – 2025",b:["Aufstieg von der Praktikantin zur Projektassistentin mit Unterstützung landwirtschaftlicher und ökologischer Projekte","CO₂-Emissionen für <span class='mt'>10 Pilotprojekte</span> bis 2030 mithilfe von HCC+ berechnet und prognostiziert","Emissions-Dashboards in <span class='hl'>Power BI</span> und analytische Modelle in <span class='hl'>Excel</span> für Stakeholder-Berichterstattung erstellt","Landwirtschaftliche und ökologische Projekte bewertet; technische Leitlinien mitgestaltet","Umweltverträglichkeitsprüfungen (UVP) und Compliance-Dokumentation unterstützt","<span class='hl'>NEAT+ (Rural & Urban)</span> Frameworks für standardisierte Projektbewertung angewandt"]},
+      {role:"Stellvertretende Filialleiterin",co:"Lovisa — Berlin, Deutschland",date:"2022 – 2024 | 2025 – Heute",b:["Dienstpläne, Aufgabenverteilung und tägliche Teamkoordination im Filialbetrieb verantwortet","Verkaufsleistung, Konsumtrends und Kaufmuster analysiert; entscheidungsrelevante Berichte erstellt","Monatlichen Budgetüberschuss von <span class='mt'>25 – 30 %</span> durch Kostenbewusstsein und Servicequalität erzielt","Bestandsmanagement überwacht und Lagerdifferenzen reduziert"]},
+      {role:"Wissenschaftliche Hilfskraft — Fachbereich Agrarökonomie",co:"SHUATS — Prayagraj, Indien",date:"2019",b:["MBA-Agribusiness-Lehre in Mikroökonomie, Ökonometrie, Makroökonomie, OB und Supply Chain Management unterstützt","Studierende betreut, Leistungen bewertet und akademische Seminare mitorganisiert"]},
+      {role:"Forschungs- und Feldpraktikantin",co:"SHUATS & Kaushambi — Indien",date:"2016 – 2017",b:["Saatgutproduktion, -verarbeitung, -zertifizierung und Qualitätsprüfung durchgeführt","Technologieadoption bei Landwirten analysiert; Empfehlungen über ländliche Outreach-Programme vermittelt","<span class='mt'>10+ verarbeitete Agrarprodukte</span> vermarktet und <span class='mt'>10 %</span> Gewinn durch Nacherntetechnologie erzielt"]}
+    ],
+    edu:[{deg:"M.Sc. Agrarökonomie",uni:"Humboldt-Universität zu Berlin, Deutschland · Voraussichtlich: Juli 2026",yr:"2019–2026"},{deg:"M.Sc. Ag. (Agrarökonomie)",uni:"Sam Higginbottom University of Agriculture, Technology & Sciences, Indien",yr:"2017–2019"}]
+  },
+  es:{sbTitle:"Economía Agrícola<br>& Analista de Sostenibilidad",mnSub:"Economía Agrícola & Sostenibilidad",hContact:"Contacto",hSnap:"Resumen del Perfil",snapYrs:"Años<br>Experiencia",snapProj:"Proyectos<br>Piloto",snapCountry:"Países<br>Trabajados",snapDeg:"Títulos de<br>Máster",hSkills:"Habilidades Técnicas",hLangs:"Idiomas",hInt:"Intereses",interests:["🌱 Agricultura Sostenible","📊 Visualización de Datos","🌍 Política Climática","📖 Econometría","🤝 Trabajo Intercultural","🧮 Mercados de Carbono"],availTitle:"Abierta a Oportunidades",permLabel:"PERMANENTE",permText:"Disponible desde junio 2026",stuLabel:"ESTUDIANTE",stuText:"Disponible de inmediato",shareTitle:"Compartir CV",shareDesc:"Disponible en 6 idiomas.<br>Comparte el enlace.",summary:"Profesional en economía agrícola que conecta la ciencia de la sostenibilidad con datos accionables. Experiencia en contabilidad de carbono (HCC+), evaluación ambiental (NEAT+, EIA) y reportes analíticos con Power BI y Excel avanzado. Capacidad demostrada para traducir datos complejos de emisiones en pronósticos estratégicos, con trayectoria en proyectos de ONG, agronegocios y liderazgo intercultural entre India y Alemania.",hExp:"Experiencia Profesional",hEdu:"Educación",hComp:"Competencias Clave",hCert:"Certificados y Referencias Laborales",cert1:"📂 Certificaciones y Publicaciones",cert2:"📋 Certificado de Empleo (Arbeitszeugnis)",comps:["Contabilidad de Carbono","Evaluación de Impacto Ambiental","Power BI Dashboards","Pronóstico de CO₂","Monitoreo y Evaluación","Excel Avanzado","Estrategia de Agronegocios","Análisis de Cadena de Suministro","Coordinación de Stakeholders","Toma de Decisiones Basada en Datos","Control Presupuestario","Liderazgo de Equipos"],compAccent:[2,5,9],exp:[{role:"Asistente de Proyecto",co:"ADRA DE e.V. — Alemania",date:"2024 – 2025",b:["Progresó de pasante a Asistente de Proyecto, apoyando proyectos agrícolas y ambientales","Calculó y pronosticó emisiones de CO₂ hasta 2030 para <span class='mt'>10 proyectos piloto</span> usando HCC+","Creó dashboards de emisiones en <span class='hl'>Power BI</span> y modelos analíticos en <span class='hl'>Excel</span>","Evaluó proyectos agrícolas/ambientales; contribuyó a la orientación técnica","Lideró actividades de evaluación de impacto ambiental (EIA) y documentación de cumplimiento","Aplicó marcos <span class='hl'>NEAT+ (Rural & Urbano)</span> para evaluación estandarizada"]},{role:"Subgerente",co:"Lovisa — Berlín, Alemania",date:"2022 – 2024 | 2025 – Presente",b:["Gestionó horarios del personal, asignación de tareas y coordinación diaria del equipo","Analizó rendimiento de ventas, tendencias de consumo y patrones de compra","Logró un superávit mensual consistente de <span class='mt'>25 – 30%</span>","Supervisó la gestión de inventario, reduciendo discrepancias de stock"]},{role:"Asistente de Enseñanza",co:"SHUATS — Prayagraj, India",date:"2019",b:["Apoyó la instrucción de MBA en Agronegocios en microeconomía, econometría y cadena de suministro","Mentoró estudiantes, evaluó desempeño y asistió en planificación de seminarios"]},{role:"Investigadora y Practicante de Campo",co:"SHUATS & Kaushambi — India",date:"2016 – 2017",b:["Completó producción, procesamiento, certificación y pruebas de calidad de semillas","Evaluó la adopción tecnológica de agricultores; entregó recomendaciones a nivel de campo","Procesó y comercializó <span class='mt'>10+ agroproductos</span>, generando <span class='mt'>10%</span> de ganancia"]}],edu:[{deg:"M.Sc. Economía Agrícola",uni:"Universidad Humboldt de Berlín, Alemania · Previsto: Julio 2026",yr:"2019–2026"},{deg:"M.Sc. Ag. (Economía Agrícola)",uni:"SHUATS, India",yr:"2017–2019"}]},
+  fr:{sbTitle:"Économie Agricole<br>& Analyste Durabilité",mnSub:"Économie Agricole & Durabilité",hContact:"Contact",hSnap:"Aperçu du Profil",snapYrs:"Années<br>d'Expérience",snapProj:"Projets<br>Pilotes",snapCountry:"Pays<br>Travaillés",snapDeg:"Masters<br>Obtenus",hSkills:"Compétences Techniques",hLangs:"Langues",hInt:"Centres d'Intérêt",interests:["🌱 Agriculture Durable","📊 Visualisation de Données","🌍 Politique Climatique","📖 Économétrie","🤝 Travail Interculturel","🧮 Marchés Carbone"],availTitle:"Ouverte aux Opportunités",permLabel:"CDI",permText:"Disponible à partir de juin 2026",stuLabel:"ÉTUDIANT",stuText:"Disponible immédiatement",shareTitle:"Partager le CV",shareDesc:"Disponible en 6 langues.<br>Partagez le lien.",summary:"Professionnelle en économie agricole reliant la science de la durabilité aux données exploitables. Expérimentée en comptabilité carbone (HCC+), évaluation environnementale (NEAT+, EIE), et reporting analytique avec Power BI et Excel avancé. Capacité avérée à transformer des données complexes d'émissions en prévisions stratégiques — avec une expérience en ONG, agro-alimentaire et leadership interculturel entre l'Inde et l'Allemagne.",hExp:"Expérience Professionnelle",hEdu:"Formation",hComp:"Compétences Clés",hCert:"Certifications et Références d'Emploi",cert1:"📂 Certifications et Publications",cert2:"📋 Certificat de Travail (Arbeitszeugnis)",comps:["Comptabilité Carbone","Évaluation d'Impact Environnemental","Power BI Dashboards","Prévision CO₂","Suivi et Évaluation","Excel Avancé","Stratégie Agribusiness","Analyse Chaîne d'Approvisionnement","Coordination des Parties Prenantes","Décisions Basées sur les Données","Suivi Budgétaire","Leadership d'Équipe"],compAccent:[2,5,9],exp:[{role:"Assistante de Projet",co:"ADRA DE e.V. — Allemagne",date:"2024 – 2025",b:["Progression de stagiaire à Assistante de Projet, soutenant des projets agricoles et environnementaux","Calculé et prévu les émissions de CO₂ jusqu'en 2030 pour <span class='mt'>10 projets pilotes</span> avec HCC+","Créé des tableaux de bord dans <span class='hl'>Power BI</span> et modèles analytiques dans <span class='hl'>Excel</span>","Évalué des projets agricoles/environnementaux ; contribué aux directives techniques","Dirigé le soutien à l'évaluation d'impact environnemental (EIE)","Appliqué les cadres <span class='hl'>NEAT+ (Rural & Urbain)</span> pour l'évaluation standardisée"]},{role:"Responsable Adjointe",co:"Lovisa — Berlin, Allemagne",date:"2022 – 2024 | 2025 – Présent",b:["Géré les plannings et la coordination quotidienne de l'équipe","Analysé les performances commerciales et tendances de consommation","Atteint un excédent budgétaire mensuel de <span class='mt'>25 – 30%</span>","Supervisé la gestion des stocks"]},{role:"Assistante d'Enseignement",co:"SHUATS — Prayagraj, Inde",date:"2019",b:["Soutenu l'enseignement MBA Agribusiness en microéconomie, économétrie et gestion de la chaîne","Mentoré les étudiants et assisté à la planification de séminaires"]},{role:"Chercheuse et Stagiaire de Terrain",co:"SHUATS & Kaushambi — Inde",date:"2016 – 2017",b:["Réalisé la production, certification et tests de qualité des semences","Évalué l'adoption technologique des agriculteurs","Traité et commercialisé <span class='mt'>10+ agro-produits</span>, générant <span class='mt'>10%</span> de profit"]}],edu:[{deg:"M.Sc. Économie Agricole",uni:"Université Humboldt de Berlin, Allemagne · Prévu : Juillet 2026",yr:"2019–2026"},{deg:"M.Sc. Ag. (Économie Agricole)",uni:"SHUATS, Inde",yr:"2017–2019"}]},
+  pt:{sbTitle:"Economia Agrícola<br>& Analista de Sustentabilidade",mnSub:"Economia Agrícola & Sustentabilidade",hContact:"Contato",hSnap:"Resumo do Perfil",snapYrs:"Anos de<br>Experiência",snapProj:"Projetos<br>Piloto",snapCountry:"Países<br>Trabalhados",snapDeg:"Mestrados<br>Obtidos",hSkills:"Habilidades Técnicas",hLangs:"Idiomas",hInt:"Interesses",interests:["🌱 Agricultura Sustentável","📊 Visualização de Dados","🌍 Política Climática","📖 Econometria","🤝 Trabalho Intercultural","🧮 Mercados de Carbono"],availTitle:"Aberta a Oportunidades",permLabel:"PERMANENTE",permText:"Disponível a partir de junho 2026",stuLabel:"ESTÁGIO",stuText:"Disponível imediatamente",shareTitle:"Compartilhar CV",shareDesc:"Disponível em 6 idiomas.<br>Compartilhe o link.",summary:"Profissional em economia agrícola conectando ciência da sustentabilidade com dados acionáveis. Experiência em contabilidade de carbono (HCC+), avaliação ambiental (NEAT+, EIA) e relatórios analíticos com Power BI e Excel avançado. Capacidade comprovada de transformar dados complexos de emissões em previsões estratégicas — com experiência em ONGs, agronegócio e liderança intercultural entre Índia e Alemanha.",hExp:"Experiência Profissional",hEdu:"Formação Acadêmica",hComp:"Competências Principais",hCert:"Certificações e Referências de Emprego",cert1:"📂 Certificações e Publicações",cert2:"📋 Certificado de Emprego (Arbeitszeugnis)",comps:["Contabilidade de Carbono","Avaliação de Impacto Ambiental","Power BI Dashboards","Previsão de CO₂","Monitoramento e Avaliação","Excel Avançado","Estratégia de Agronegócio","Análise de Cadeia de Suprimentos","Coordenação de Stakeholders","Decisões Baseadas em Dados","Controle Orçamentário","Liderança de Equipes"],compAccent:[2,5,9],exp:[{role:"Assistente de Projeto",co:"ADRA DE e.V. — Alemanha",date:"2024 – 2025",b:["Progrediu de estagiária para Assistente de Projeto, apoiando projetos agrícolas e ambientais","Calculou e previu emissões de CO₂ até 2030 para <span class='mt'>10 projetos piloto</span> usando HCC+","Criou dashboards em <span class='hl'>Power BI</span> e modelos analíticos em <span class='hl'>Excel</span>","Avaliou projetos agrícolas/ambientais; contribuiu para orientação técnica","Liderou suporte à avaliação de impacto ambiental (EIA)","Aplicou frameworks <span class='hl'>NEAT+ (Rural & Urbano)</span> para avaliação padronizada"]},{role:"Gerente Assistente",co:"Lovisa — Berlim, Alemanha",date:"2022 – 2024 | 2025 – Presente",b:["Gerenciou escalas de funcionários e coordenação diária da equipe","Analisou desempenho de vendas e padrões de compra","Alcançou superávit orçamentário mensal de <span class='mt'>25 – 30%</span>","Supervisionou gestão de inventário"]},{role:"Assistente de Ensino",co:"SHUATS — Prayagraj, Índia",date:"2019",b:["Apoiou o ensino de MBA em Agronegócio em microeconomia e econometria","Mentorou estudantes e auxiliou no planejamento de seminários"]},{role:"Pesquisadora e Estagiária de Campo",co:"SHUATS & Kaushambi — Índia",date:"2016 – 2017",b:["Realizou produção, certificação e testes de qualidade de sementes","Avaliou adoção tecnológica de agricultores","Processou e comercializou <span class='mt'>10+ agroprodutos</span>, gerando <span class='mt'>10%</span> de lucro"]}],edu:[{deg:"M.Sc. Economia Agrícola",uni:"Universidade Humboldt de Berlim, Alemanha · Previsão: Julho 2026",yr:"2019–2026"},{deg:"M.Sc. Ag. (Economia Agrícola)",uni:"SHUATS, Índia",yr:"2017–2019"}]},
+  ar:{sbTitle:"اقتصاد زراعي<br>ومحللة استدامة",mnSub:"اقتصاد زراعي واستدامة",hContact:"التواصل",hSnap:"نظرة عامة",snapYrs:"سنوات<br>خبرة",snapProj:"مشاريع<br>تجريبية",snapCountry:"دول<br>عمل",snapDeg:"درجات<br>ماجستير",hSkills:"المهارات التقنية",hLangs:"اللغات",hInt:"الاهتمامات",interests:["🌱 الزراعة المستدامة","📊 تصور البيانات","🌍 سياسة المناخ","📖 الاقتصاد القياسي","🤝 العمل بين الثقافات","🧮 أسواق الكربون"],availTitle:"متاحة للفرص",permLabel:"دائم",permText:"متاحة من يونيو 2026",stuLabel:"عمل طلابي",stuText:"متاحة فوراً",shareTitle:"مشاركة السيرة الذاتية",shareDesc:"متاح بـ 6 لغات.<br>شارك الرابط.",summary:"متخصصة في الاقتصاد الزراعي تربط علوم الاستدامة بالبيانات القابلة للتنفيذ. خبرة في محاسبة الكربون (HCC+)، تقييم الأثر البيئي (NEAT+، EIA)، والتقارير التحليلية باستخدام Power BI وExcel المتقدم. قدرة مثبتة على ترجمة بيانات الانبعاثات المعقدة إلى توقعات استراتيجية — مع سجل يمتد من عمل مشاريع المنظمات غير الحكومية وعمليات الأعمال الزراعية وقيادة الفرق متعددة الثقافات في الهند وألمانيا.",hExp:"الخبرة المهنية",hEdu:"التعليم",hComp:"الكفاءات الأساسية",hCert:"الشهادات ومراجع العمل",cert1:"📂 الشهادات والمنشورات",cert2:"📋 شهادة العمل (Arbeitszeugnis)",comps:["محاسبة الكربون","تقييم الأثر البيئي","Power BI","توقعات CO₂","المراقبة والتقييم","Excel متقدم","استراتيجية الأعمال الزراعية","تحليل سلسلة التوريد","تنسيق أصحاب المصلحة","قرارات مبنية على البيانات","تتبع الميزانية","قيادة الفريق"],compAccent:[2,5,9],exp:[{role:"مساعدة مشروع",co:"ADRA DE e.V. — ألمانيا",date:"2024 – 2025",b:["ترقية من متدربة إلى مساعدة مشروع، ودعم المشاريع الزراعية والبيئية","حساب وتوقع انبعاثات CO₂ حتى 2030 لـ <span class='mt'>10 مشاريع تجريبية</span>","إنشاء لوحات معلومات في <span class='hl'>Power BI</span> ونماذج تحليلية في <span class='hl'>Excel</span>","تقييم المشاريع الزراعية/البيئية والمساهمة في التوجيه الفني","قيادة دعم تقييم الأثر البيئي (EIA)","تطبيق أطر <span class='hl'>NEAT+</span> للتقييم الموحد"]},{role:"مديرة مساعدة",co:"Lovisa — برلين، ألمانيا",date:"2022 – 2024 | 2025 – حالياً",b:["إدارة جداول الموظفين وتوزيع المهام والتنسيق اليومي","تحليل أداء المبيعات واتجاهات المستهلكين","تحقيق فائض ميزانية شهري بنسبة <span class='mt'>25 – 30%</span>","الإشراف على إدارة المخزون"]},{role:"مساعدة تعليم",co:"SHUATS — الهند",date:"2019",b:["دعم تعليم MBA في الاقتصاد الزراعي","إرشاد الطلاب وتقييم الأداء"]},{role:"باحثة ومتدربة ميدانية",co:"SHUATS & Kaushambi — الهند",date:"2016 – 2017",b:["إنتاج البذور وشهادات الجودة","تقييم اعتماد التكنولوجيا لدى المزارعين","تسويق <span class='mt'>10+ منتجات زراعية</span> بربح <span class='mt'>10%</span>"]}],edu:[{deg:"ماجستير الاقتصاد الزراعي",uni:"جامعة هومبولت في برلين · المتوقع: يوليو 2026",yr:"2019–2026"},{deg:"ماجستير الاقتصاد الزراعي",uni:"SHUATS، الهند",yr:"2017–2019"}]}
+};
+
+let curLang='en';
+function setLang(lang){
+  curLang=lang;
+  const t=L[lang];
+  const isRTL=lang==='ar';
+  document.documentElement.setAttribute('dir',isRTL?'rtl':'ltr');
+  document.getElementById('mainArea').style.direction=isRTL?'rtl':'ltr';
+  document.getElementById('mainArea').style.textAlign=isRTL?'right':'left';
+  // Buttons
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.lang-btn').forEach(b=>{const map={en:'English',de:'Deutsch',es:'Español',fr:'Français',pt:'Português',ar:'العربية'};if(b.textContent.trim()===map[lang])b.classList.add('active')});
+  // Sidebar text
+  const s=(id,v)=>{const e=document.getElementById(id);if(e)e.innerHTML=v};
+  s('sbTitle',t.sbTitle);s('hContact',t.hContact);s('hSnap',t.hSnap);
+  s('snapYrs',t.snapYrs);s('snapProj',t.snapProj);s('snapCountry',t.snapCountry);s('snapDeg',t.snapDeg);
+  s('hSkills',t.hSkills);s('hLangs',t.hLangs);s('hInt',t.hInt);
+  s('availTitle',t.availTitle);s('permLabel',t.permLabel);s('permText',t.permText);s('stuLabel',t.stuLabel);s('stuText',t.stuText);
+  s('shareTitle',t.shareTitle);s('shareDesc',t.shareDesc);
+  // Interests
+  document.getElementById('intTags').innerHTML=t.interests.map(i=>`<span class="int-tag">${i}</span>`).join('');
+  // Main
+  s('mnSub',t.mnSub);s('mnSum',t.summary);
+  s('hExp',t.hExp);s('hEdu',t.hEdu);s('hComp',t.hComp);s('hCert',t.hCert);
+  s('certLink1',t.cert1);s('certLink2',t.cert2);
+  // Experience cards
+  document.getElementById('expCards').innerHTML=t.exp.map(e=>`<div class="ec"><div class="ec-role">${e.role}</div><div class="ec-co">${e.co}</div><div class="ec-date">${e.date}</div><ul class="el">${e.b.map(b=>`<li>${b}</li>`).join('')}</ul></div>`).join('');
+  // Education
+  document.getElementById('eduCards').innerHTML=t.edu.map(e=>`<div class="edu-c"><div class="edu-yr">${e.yr}</div><div class="edu-i"><h4>${e.deg}</h4><p>${e.uni}</p></div></div>`).join('');
+  // Competencies
+  document.getElementById('compTags').innerHTML=t.comps.map((c,i)=>`<span class="ct${t.compAccent.includes(i)?' a':''}">${c}</span>`).join('');
+}
+function copyLink(){navigator.clipboard.writeText(window.location.href).then(()=>{const b=document.querySelector('.share-btn');b.textContent='✓ Copied!';setTimeout(()=>b.textContent='📋 Copy Link',2000)}).catch(()=>prompt('Copy this link:',window.location.href))}
+setLang('en');
+</script>
+</body>
+</html>
